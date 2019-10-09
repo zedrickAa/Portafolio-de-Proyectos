@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap4 %}
+<a class="container padding-4 btn btn-primary" href="{% url 'proyecto:create' %}">Nuevo</a>
+<div class="card" style="width: 18rem;">
+    {% for Proyecto in object_list %}
+        <img src="{{ Proyecto.image.url }}" style="max-height: 100px; padding: 10px;">
+       
+        <li class="list-group-item"><a href="{% url 'proyecto:detail' Proyecto.id %}">{{Proyecto.nombre}}</a></li>
+    {% empty %}
+        <li>No hay proyectos</li>
+    {% endfor %}
+
+ </div>
+
+{% endblock %}

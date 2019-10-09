@@ -1,0 +1,18 @@
+<h1>{{ proyecto.nombre }}</h1>
+<img src="{{ proyecto.image.url }}" style="max-width: 200px">
+<p>{{ proyecto.descripcion }}</p>
+<p>{{ proyecto.tipo}}</p>
+<p>{{ proyecto.curso }}</p>
+<p>{{ proyecto.tiempo }}</p>
+<p>{{ proyecto.Grupo }}</p>
+
+{% for imagen in proyecto.imagen.all %}
+<img src="{{ imagen.image.url }}" style="max-height: 100px; padding: 10px;">
+{% endfor %}
+
+<br>
+<a href="{% url 'proyecto:update' proyecto.id %}">Actualizar</a>
+<br>
+<a href="{% url 'proyecto:index' %}">Todos los portafolios</a>
+<br>
+<a href="{% url 'proyecto:delete' proyecto.id %}">Eliminar</a>
